@@ -21,5 +21,12 @@ namespace TimeKeeper
         {
 
         }
+
+        private void rbOpenExisting_CheckedChanged(object sender, EventArgs e)
+        {
+            // this only opens the dialog and doesn't open a file... 
+            // just need to check on github auth
+            openFileDialog1.ShowDialog();
+        }
     }
 }

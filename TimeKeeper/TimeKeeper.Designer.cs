@@ -191,6 +191,7 @@
             this.rbOpenExisting.TabStop = true;
             this.rbOpenExisting.Text = "Open Study Notes";
             this.rbOpenExisting.UseVisualStyleBackColor = true;
+            this.rbOpenExisting.CheckedChanged += new System.EventHandler(this.rbOpenExisting_CheckedChanged);
             // 
             // rbSelectNotes
             // 
