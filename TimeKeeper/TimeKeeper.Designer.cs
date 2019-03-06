@@ -28,15 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.cmsData = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.linksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.topicsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sessionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTopic = new System.Windows.Forms.Label();
             this.cbTopic = new System.Windows.Forms.ComboBox();
             this.lblProject = new System.Windows.Forms.Label();
@@ -54,66 +45,22 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cmsData.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topicsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.extraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gbStartControls = new System.Windows.Forms.GroupBox();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.gbStartControls.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cmsData
-            // 
-            this.cmsData.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.notesToolStripMenuItem,
-            this.tagsToolStripMenuItem,
-            this.linksToolStripMenuItem,
-            this.topicsToolStripMenuItem,
-            this.projectsToolStripMenuItem,
-            this.sessionsToolStripMenuItem,
-            this.extrasToolStripMenuItem});
-            this.cmsData.Name = "cmsData";
-            this.cmsData.Size = new System.Drawing.Size(119, 158);
-            // 
-            // notesToolStripMenuItem
-            // 
-            this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.notesToolStripMenuItem.Text = "Notes";
-            // 
-            // tagsToolStripMenuItem
-            // 
-            this.tagsToolStripMenuItem.Name = "tagsToolStripMenuItem";
-            this.tagsToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.tagsToolStripMenuItem.Text = "Tags";
-            // 
-            // linksToolStripMenuItem
-            // 
-            this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
-            this.linksToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.linksToolStripMenuItem.Text = "Links";
-            // 
-            // topicsToolStripMenuItem
-            // 
-            this.topicsToolStripMenuItem.Name = "topicsToolStripMenuItem";
-            this.topicsToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.topicsToolStripMenuItem.Text = "Topics";
-            // 
-            // projectsToolStripMenuItem
-            // 
-            this.projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
-            this.projectsToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.projectsToolStripMenuItem.Text = "Projects";
-            // 
-            // sessionsToolStripMenuItem
-            // 
-            this.sessionsToolStripMenuItem.Name = "sessionsToolStripMenuItem";
-            this.sessionsToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.sessionsToolStripMenuItem.Text = "Sessions";
-            // 
-            // extrasToolStripMenuItem
-            // 
-            this.extrasToolStripMenuItem.Name = "extrasToolStripMenuItem";
-            this.extrasToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.extrasToolStripMenuItem.Text = "Extras";
             // 
             // lblTopic
             // 
@@ -271,36 +218,113 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dataToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(650, 24);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // dataToolStripMenuItem
+            // 
+            this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.topicsToolStripMenuItem,
+            this.projectsToolStripMenuItem,
+            this.notesToolStripMenuItem,
+            this.linksToolStripMenuItem,
+            this.extraToolStripMenuItem});
+            this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.dataToolStripMenuItem.Text = "Data";
+            // 
+            // topicsToolStripMenuItem
+            // 
+            this.topicsToolStripMenuItem.Name = "topicsToolStripMenuItem";
+            this.topicsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.topicsToolStripMenuItem.Text = "Topics";
+            // 
+            // projectsToolStripMenuItem
+            // 
+            this.projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
+            this.projectsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.projectsToolStripMenuItem.Text = "Projects";
+            // 
+            // notesToolStripMenuItem
+            // 
+            this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
+            this.notesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.notesToolStripMenuItem.Text = "Notes";
+            // 
+            // linksToolStripMenuItem
+            // 
+            this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
+            this.linksToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.linksToolStripMenuItem.Text = "Links";
+            // 
+            // extraToolStripMenuItem
+            // 
+            this.extraToolStripMenuItem.Name = "extraToolStripMenuItem";
+            this.extraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.extraToolStripMenuItem.Text = "Extra";
+            // 
+            // gbStartControls
+            // 
+            this.gbStartControls.Controls.Add(this.btnStop);
+            this.gbStartControls.Controls.Add(this.btnStart);
+            this.gbStartControls.Location = new System.Drawing.Point(361, 168);
+            this.gbStartControls.Name = "gbStartControls";
+            this.gbStartControls.Size = new System.Drawing.Size(225, 139);
+            this.gbStartControls.TabIndex = 0;
+            this.gbStartControls.TabStop = false;
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(38, 44);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(162, 23);
+            this.btnStart.TabIndex = 0;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            // 
+            // btnStop
+            // 
+            this.btnStop.Location = new System.Drawing.Point(38, 106);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(162, 23);
+            this.btnStop.TabIndex = 1;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            // 
             // frmTimeKeeperMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 450);
+            this.Controls.Add(this.gbStartControls);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmTimeKeeperMain";
             this.Text = "TimeKeeper";
-            this.cmsData.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.gbStartControls.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ContextMenuStrip cmsData;
-        private System.Windows.Forms.ToolStripMenuItem notesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tagsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem linksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem topicsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem projectsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sessionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem extrasToolStripMenuItem;
         private System.Windows.Forms.Label lblTopic;
         private System.Windows.Forms.ComboBox cbTopic;
         private System.Windows.Forms.Label lblProject;
@@ -318,6 +342,16 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topicsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem projectsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem linksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem extraToolStripMenuItem;
+        private System.Windows.Forms.GroupBox gbStartControls;
+        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Button btnStart;
     }
 }
 
