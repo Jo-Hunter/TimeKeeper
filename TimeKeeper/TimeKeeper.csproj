@@ -46,15 +46,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business_Layer\Session.cs" />
-    <Compile Include="TimeKeeper.cs">
+    <Compile Include="Presentation_Layer\TimeKeeper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TimeKeeper.Designer.cs">
+    <Compile Include="Presentation_Layer\TimeKeeper.Designer.cs">
       <DependentUpon>TimeKeeper.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="TimeKeeper.resx">
+    <EmbeddedResource Include="Presentation_Layer\TimeKeeper.resx">
       <DependentUpon>TimeKeeper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -79,8 +79,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Presentation_Layer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
