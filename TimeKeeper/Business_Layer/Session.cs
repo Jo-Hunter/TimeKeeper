@@ -15,6 +15,7 @@ namespace TimeKeeper.Business_Layer
 
         private int sessionID, topicID, projectID, sessionTagsID, sessionNotesID, extraID, sessionLinksID;
         private DateTime startTime, stopTime;
+        private bool archive;
 
         //Set-Get properties
         public int SessionID
@@ -70,6 +71,11 @@ namespace TimeKeeper.Business_Layer
             get { return stopTime; }
             set { stopTime = value; }
         }
+        public bool Archive
+        {
+            get { return archive; }
+            set { archive = value; }
+        }
 
         public Session() { }
 
@@ -77,7 +83,7 @@ namespace TimeKeeper.Business_Layer
 
 
         public Session(int sessionID, int topicID, int projectID, int sessionTagsID, int sessionNotesID, 
-            int extraID, int sessionLinksID, DateTime startTime, DateTime stopTime)
+            int extraID, int sessionLinksID, DateTime startTime, DateTime stopTime, bool archive)
         {
             SessionID = sessionID;
             TopicID = topicID;
@@ -88,6 +94,7 @@ namespace TimeKeeper.Business_Layer
             SessionLinksID = sessionLinksID;
             StartTime = startTime;
             StopTime = stopTime;
+            Archive = archive;
 
         }
 
