@@ -53,8 +53,8 @@
             this.linksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbStartControls = new System.Windows.Forms.GroupBox();
-            this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -243,31 +243,31 @@
             // topicsToolStripMenuItem
             // 
             this.topicsToolStripMenuItem.Name = "topicsToolStripMenuItem";
-            this.topicsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.topicsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.topicsToolStripMenuItem.Text = "Topics";
             // 
             // projectsToolStripMenuItem
             // 
             this.projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
-            this.projectsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.projectsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.projectsToolStripMenuItem.Text = "Projects";
             // 
             // notesToolStripMenuItem
             // 
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.notesToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.notesToolStripMenuItem.Text = "Notes";
             // 
             // linksToolStripMenuItem
             // 
             this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
-            this.linksToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.linksToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.linksToolStripMenuItem.Text = "Links";
             // 
             // extraToolStripMenuItem
             // 
             this.extraToolStripMenuItem.Name = "extraToolStripMenuItem";
-            this.extraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.extraToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.extraToolStripMenuItem.Text = "Extra";
             // 
             // gbStartControls
@@ -280,15 +280,6 @@
             this.gbStartControls.TabIndex = 0;
             this.gbStartControls.TabStop = false;
             // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(38, 44);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(162, 23);
-            this.btnStart.TabIndex = 0;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            // 
             // btnStop
             // 
             this.btnStop.Location = new System.Drawing.Point(38, 106);
@@ -297,6 +288,16 @@
             this.btnStop.TabIndex = 1;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(38, 44);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(162, 23);
+            this.btnStart.TabIndex = 0;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // frmTimeKeeperMain
             // 
