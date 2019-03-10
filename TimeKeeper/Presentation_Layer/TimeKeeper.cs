@@ -41,37 +41,28 @@ namespace TimeKeeper
         {
             DateTime start = DateTime.Now;
             
-
             // Save it into the class. 
             Session session = new Session();
             session.StartTime = start;
-
             
             string addQuery = "sp_Sessions_NewSession";
-
 
             try
             {
                 SqlConnection conn = ConnectionManager.DatabaseConnection();
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(addQuery, conn);
-
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@StartTime", session.StartTime);
-
-                cmd.Parameters.AddWithValue("@NewSessionID", SqlDbType.Int).Direction = ParameterDirection.Output;
-                //MessageBox.Show("ID equals " + cmd.Parameters["@NewSessionID"].Value.ToString());
-                // record stsored proc output to local variable.
-                GlobalVariables.currentSessionID = int.Parse(cmd.Parameters["@NewSessionID"].Value.ToString());
-
-                // Not sure why this doesn't work but mafs is on haha.
-                // It seems the same as the assignment I did but no.
-                // The output above in the message box is "INT'. ??
-
+                cmd.Parameters.Add("@NewSessionID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                
                 cmd.Transaction = conn.BeginTransaction();
                 cmd.ExecuteNonQuery();
                 cmd.Transaction.Commit();
+
+                // Save ID in a global to keep track of current session.
+                GlobalVariables.currentSessionID = int.Parse(cmd.Parameters["@NewSessionID"].Value.ToString());
 
                 conn.Close();
 
@@ -88,29 +79,19 @@ namespace TimeKeeper
         private void btnStop_Click(object sender, EventArgs e)
         {
 
-            // Create a global variable to hold the sessionID until the session is closed.
-            // Below is copy paste start, edit accordingly.
-
             DateTime end = DateTime.Now;
-
-
-            // Save it into the class. 
-
-
+            
+            // Create a session using the current session ID with the new information.
             Session session = new Session();
-            session.SessionID = int.Parse(GlobalVariables.currentSessionID);
+            session.SessionID = int.Parse(GlobalVariables.currentSessionID.ToString());
             session.StopTime = end;
 
 
-            MessageBox.Show("session id, session stop: " + session.SessionID + ", " + session.StopTime);
-
-            //string addQuery = "sp_Sessions_NewSession";
             string updateQuery = "sp_Sessions_EndSession";
-
 
             try
             {
-                MessageBox.Show("entered try");
+                
                 SqlConnection conn = ConnectionManager.DatabaseConnection();
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(updateQuery, conn);

@@ -9,7 +9,7 @@ namespace TimeKeeper
     class GlobalVariables
     {
 
-        // TODO make a variable for session 
+        // Keeps track of the current session.
         public static int currentSessionID;
 
     }
