@@ -61,8 +61,13 @@ namespace TimeKeeper
                 cmd.Parameters.AddWithValue("@StartTime", session.StartTime);
 
                 cmd.Parameters.AddWithValue("@NewSessionID", SqlDbType.Int).Direction = ParameterDirection.Output;
-                // Here I really need to save the ID into the class. Too tired right now, but
-                // I am sure I achieved this in the Acme assignment I did.
+                //MessageBox.Show("ID equals " + cmd.Parameters["@NewSessionID"].Value.ToString());
+                // record stsored proc output to local variable.
+                GlobalVariables.currentSessionID = int.Parse(cmd.Parameters["@NewSessionID"].Value.ToString());
+
+                // Not sure why this doesn't work but mafs is on haha.
+                // It seems the same as the assignment I did but no.
+                // The output above in the message box is "INT'. ??
 
                 cmd.Transaction = conn.BeginTransaction();
                 cmd.ExecuteNonQuery();
@@ -90,26 +95,29 @@ namespace TimeKeeper
 
 
             // Save it into the class. 
+
+
             Session session = new Session();
-            session.StartTime = end;
+            session.SessionID = int.Parse(GlobalVariables.currentSessionID);
+            session.StopTime = end;
 
 
-            string addQuery = "sp_Sessions_NewSession";
+            MessageBox.Show("session id, session stop: " + session.SessionID + ", " + session.StopTime);
+
+            //string addQuery = "sp_Sessions_NewSession";
+            string updateQuery = "sp_Sessions_EndSession";
 
 
             try
             {
+                MessageBox.Show("entered try");
                 SqlConnection conn = ConnectionManager.DatabaseConnection();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(addQuery, conn);
+                SqlCommand cmd = new SqlCommand(updateQuery, conn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@StartTime", session.StartTime);
-
-                cmd.Parameters.AddWithValue("@NewSessionID", SqlDbType.Int).Direction = ParameterDirection.Output;
-                // Here I really need to save the ID into the class. Too tired right now, but
-                // I am sure I achieved this in the Acme assignment I did.
+                cmd.Parameters.AddWithValue("@SessionID", session.SessionID);
+                cmd.Parameters.AddWithValue("@StopTime", session.StopTime);
 
                 cmd.Transaction = conn.BeginTransaction();
                 cmd.ExecuteNonQuery();
@@ -122,6 +130,7 @@ namespace TimeKeeper
             {
                 MessageBox.Show("unsuccessful " + ex);
             }
+            GlobalVariables.currentSessionID = 0;
         }
     }
 }

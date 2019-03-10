@@ -10,7 +10,7 @@ namespace TimeKeeper
     {
 
         // TODO make a variable for session 
-        public int currentSessionID;
+        public static int currentSessionID;
 
     }
 }
