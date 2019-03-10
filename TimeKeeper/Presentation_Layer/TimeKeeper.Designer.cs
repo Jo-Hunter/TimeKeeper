@@ -243,31 +243,32 @@
             // topicsToolStripMenuItem
             // 
             this.topicsToolStripMenuItem.Name = "topicsToolStripMenuItem";
-            this.topicsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.topicsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.topicsToolStripMenuItem.Text = "Topics";
             // 
             // projectsToolStripMenuItem
             // 
             this.projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
-            this.projectsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.projectsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.projectsToolStripMenuItem.Text = "Projects";
+            this.projectsToolStripMenuItem.Click += new System.EventHandler(this.projectsToolStripMenuItem_Click);
             // 
             // notesToolStripMenuItem
             // 
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.notesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.notesToolStripMenuItem.Text = "Notes";
             // 
             // linksToolStripMenuItem
             // 
             this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
-            this.linksToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.linksToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.linksToolStripMenuItem.Text = "Links";
             // 
             // extraToolStripMenuItem
             // 
             this.extraToolStripMenuItem.Name = "extraToolStripMenuItem";
-            this.extraToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.extraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.extraToolStripMenuItem.Text = "Extra";
             // 
             // gbStartControls

@@ -48,6 +48,12 @@
     <Compile Include="Business_Layer\Session.cs" />
     <Compile Include="Data_Layer\ConnectionManager.cs" />
     <Compile Include="GlobalVariables.cs" />
+    <Compile Include="Presentation_Layer\ProjectMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation_Layer\ProjectMaintenance.Designer.cs">
+      <DependentUpon>ProjectMaintenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation_Layer\TimeKeeper.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +62,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation_Layer\ProjectMaintenance.resx">
+      <DependentUpon>ProjectMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation_Layer\TimeKeeper.resx">
       <DependentUpon>TimeKeeper.cs</DependentUpon>
     </EmbeddedResource>

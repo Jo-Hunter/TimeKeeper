@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TimeKeeper.Business_Layer;
 using TimeKeeper.Data_Layer;
 using System.Data.SqlClient;
+using TimeKeeper.Presentation_Layer;
 
 namespace TimeKeeper
 {
@@ -112,6 +113,13 @@ namespace TimeKeeper
                 MessageBox.Show("unsuccessful " + ex);
             }
             GlobalVariables.currentSessionID = 0;
+        }
+
+        private void projectsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProjects pro = new frmProjects();
+            pro.ShowDialog();
+            
         }
     }
 }
