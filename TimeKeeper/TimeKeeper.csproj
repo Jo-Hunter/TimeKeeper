@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Business_Layer\Session.cs" />
     <Compile Include="Data_Layer\ConnectionManager.cs" />
+    <Compile Include="GlobalVariables.cs" />
     <Compile Include="Presentation_Layer\TimeKeeper.cs">
       <SubType>Form</SubType>
     </Compile>

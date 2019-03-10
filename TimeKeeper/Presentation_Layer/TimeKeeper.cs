@@ -79,5 +79,49 @@ namespace TimeKeeper
 
 
         }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+
+            // Create a global variable to hold the sessionID until the session is closed.
+            // Below is copy paste start, edit accordingly.
+
+            DateTime end = DateTime.Now;
+
+
+            // Save it into the class. 
+            Session session = new Session();
+            session.StartTime = end;
+
+
+            string addQuery = "sp_Sessions_NewSession";
+
+
+            try
+            {
+                SqlConnection conn = ConnectionManager.DatabaseConnection();
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(addQuery, conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@StartTime", session.StartTime);
+
+                cmd.Parameters.AddWithValue("@NewSessionID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                // Here I really need to save the ID into the class. Too tired right now, but
+                // I am sure I achieved this in the Acme assignment I did.
+
+                cmd.Transaction = conn.BeginTransaction();
+                cmd.ExecuteNonQuery();
+                cmd.Transaction.Commit();
+
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("unsuccessful " + ex);
+            }
+        }
     }
 }
