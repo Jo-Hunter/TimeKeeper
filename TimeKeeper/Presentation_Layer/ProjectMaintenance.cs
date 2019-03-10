@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using TimeKeeper.Data_Layer;
 
 namespace TimeKeeper.Presentation_Layer
 {
@@ -25,6 +27,29 @@ namespace TimeKeeper.Presentation_Layer
         private void frmProjects_Load(object sender, EventArgs e)
         {
             // TODO read from the database and add all the data into the listview columns.
+            DisplayProjects();
+
+        }
+
+        private void DisplayProjects()
+        {
+            // Query string
+            string getProjects = "SELECT * FROM Projects";
+
+            SqlConnection conn = ConnectionManager.DatabaseConnection();
+
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unsuccessful " + ex);
+            }
+            
+
+
+
         }
     }
 }
