@@ -79,15 +79,15 @@ namespace TimeKeeper.Presentation_Layer
                         project.TypeID = int.Parse(sdr["TypeID"].ToString());
                     }
 
-
+                    MessageBox.Show(project.ProjectName.ToString());
 
                     // Init the ListView by giving the PK.
                     ListViewItem lvi = new ListViewItem(project.ProjectID.ToString());
                     // Submit the information going in the other column/s.
-                    lvi.SubItems.Add(project.ProjectName.ToString());
-                    //lvi.SubItems.Add(project.TopicID.ToString());
-                    //lvi.SubItems.Add(project.CodeLocation);
-                    //lvi.SubItems.Add(project.Archive.ToString());
+                    lvi.SubItems.Add(project.ProjectName).ToString();
+                    lvi.SubItems.Add(project.TopicID.ToString());
+                    lvi.SubItems.Add(project.CodeLocation);
+                    lvi.SubItems.Add(project.Archive.ToString());
                     //lvi.SubItems.Add(project.TypeID.ToString());
 
                     //// Add the items to the listview.
