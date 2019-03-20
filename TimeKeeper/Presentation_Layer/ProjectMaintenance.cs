@@ -53,28 +53,45 @@ namespace TimeKeeper.Presentation_Layer
                 // Loop each row.
                 while (sdr.Read())
                 {
-                   
+
                     // Probelm with bool
                     Project project = new Project();
                     project.ProjectID = int.Parse(sdr["ProjectID"].ToString());
                     project.ProjectName = sdr["ProjectName"].ToString();
-                    //project.TopicID = int.Parse(sdr["TopicID"].ToString());
-                    project.CodeLocation = sdr["CodeLocation"].ToString();
-                    project.Archive = bool.Parse(sdr["Archive"].ToString());
-                    project.TypeID = int.Parse(sdr["TypeID"].ToString());
+                    if (! DBNull.Value.Equals(sdr["TopicID"]))
+                    {
+                        project.TopicID = int.Parse(sdr["TopicID"].ToString());
+                    }
+                    else
+                    {
+                        //project.TopicID = 0;
+                    }
+                    if (!DBNull.Value.Equals(sdr["CodeLocation"]))
+                    {
+                        project.CodeLocation = sdr["CodeLocation"].ToString();
+                    }
+                    if (!DBNull.Value.Equals(sdr["Archive"]))
+                    {
+                        project.Archive = bool.Parse(sdr["Archive"].ToString());
+                    }
+                    if (!DBNull.Value.Equals(sdr["TypeID"]))
+                    {
+                        project.TypeID = int.Parse(sdr["TypeID"].ToString());
+                    }
 
-                    
+
+
                     // Init the ListView by giving the PK.
                     ListViewItem lvi = new ListViewItem(project.ProjectID.ToString());
                     // Submit the information going in the other column/s.
-                    lvi.SubItems.Add(project.ProjectName);
+                    lvi.SubItems.Add(project.ProjectName.ToString());
                     //lvi.SubItems.Add(project.TopicID.ToString());
-                    lvi.SubItems.Add(project.CodeLocation);
-                    lvi.SubItems.Add(project.Archive.ToString());
-                    lvi.SubItems.Add(project.TypeID.ToString());
-                    
+                    //lvi.SubItems.Add(project.CodeLocation);
+                    //lvi.SubItems.Add(project.Archive.ToString());
+                    //lvi.SubItems.Add(project.TypeID.ToString());
+
                     //// Add the items to the listview.
-                   
+
                     lvProjects.Items.Add(lvi);
 
                 }
