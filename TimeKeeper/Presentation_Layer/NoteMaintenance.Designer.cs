@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvNotes = new System.Windows.Forms.ListView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -39,19 +39,19 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // listView1
+            // lvNotes
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvNotes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView1.Location = new System.Drawing.Point(14, 14);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(772, 380);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvNotes.Location = new System.Drawing.Point(14, 14);
+            this.lvNotes.Name = "lvNotes";
+            this.lvNotes.Size = new System.Drawing.Size(772, 380);
+            this.lvNotes.TabIndex = 0;
+            this.lvNotes.UseCompatibleStateImageBehavior = false;
+            this.lvNotes.View = System.Windows.Forms.View.Details;
             // 
             // btnAdd
             // 
@@ -114,7 +114,7 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvNotes);
             this.Name = "frmNotes";
             this.Text = "Notes";
             this.Load += new System.EventHandler(this.frmNotes_Load);
@@ -124,7 +124,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvNotes;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSearch;

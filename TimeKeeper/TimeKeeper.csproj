@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business_Layer\Notes.cs" />
     <Compile Include="Business_Layer\Project.cs" />
     <Compile Include="Business_Layer\Session.cs" />
     <Compile Include="Data_Layer\ConnectionManager.cs" />
