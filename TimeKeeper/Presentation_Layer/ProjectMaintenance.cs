@@ -88,7 +88,7 @@ namespace TimeKeeper.Presentation_Layer
                     lvi.SubItems.Add(project.TopicID.ToString());
                     lvi.SubItems.Add(project.CodeLocation);
                     lvi.SubItems.Add(project.Archive.ToString());
-                    //lvi.SubItems.Add(project.TypeID.ToString());
+                    lvi.SubItems.Add(project.TypeID.ToString());
 
                     //// Add the items to the listview.
 

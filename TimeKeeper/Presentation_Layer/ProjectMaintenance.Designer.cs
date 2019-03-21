@@ -38,6 +38,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvProjects
@@ -47,7 +48,8 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.columnHeader6});
             this.lvProjects.Location = new System.Drawing.Point(14, 16);
             this.lvProjects.Name = "lvProjects";
             this.lvProjects.Size = new System.Drawing.Size(773, 369);
@@ -58,6 +60,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "ProjectID";
+            this.columnHeader1.Width = 120;
             // 
             // columnHeader2
             // 
@@ -113,6 +116,10 @@
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Type";
+            // 
             // frmProjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,5 +149,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
