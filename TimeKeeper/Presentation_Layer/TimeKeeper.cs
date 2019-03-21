@@ -130,5 +130,12 @@ namespace TimeKeeper
             this.Hide();
             
         }
+
+        private void topicsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTopic topic = new frmTopic();
+            topic.ShowDialog();
+            this.Close();
+        }
     }
 }

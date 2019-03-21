@@ -48,6 +48,7 @@
     <Compile Include="Business_Layer\Notes.cs" />
     <Compile Include="Business_Layer\Project.cs" />
     <Compile Include="Business_Layer\Session.cs" />
+    <Compile Include="Business_Layer\Topics.cs" />
     <Compile Include="Data_Layer\ConnectionManager.cs" />
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Presentation_Layer\NoteMaintenance.cs">
@@ -68,6 +69,12 @@
     <Compile Include="Presentation_Layer\TimeKeeper.Designer.cs">
       <DependentUpon>TimeKeeper.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation_Layer\TopicMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation_Layer\TopicMaintenance.Designer.cs">
+      <DependentUpon>TopicMaintenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentation_Layer\NoteMaintenance.resx">
@@ -78,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation_Layer\TimeKeeper.resx">
       <DependentUpon>TimeKeeper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation_Layer\TopicMaintenance.resx">
+      <DependentUpon>TopicMaintenance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
