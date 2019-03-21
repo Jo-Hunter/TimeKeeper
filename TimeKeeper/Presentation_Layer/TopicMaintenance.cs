@@ -71,5 +71,10 @@ namespace TimeKeeper.Presentation_Layer
             }
 
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

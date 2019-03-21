@@ -55,6 +55,7 @@
             this.gbStartControls = new System.Windows.Forms.GroupBox();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
+            this.tagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -235,7 +236,8 @@
             this.projectsToolStripMenuItem,
             this.notesToolStripMenuItem,
             this.linksToolStripMenuItem,
-            this.extraToolStripMenuItem});
+            this.extraToolStripMenuItem,
+            this.tagsToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.dataToolStripMenuItem.Text = "Data";
@@ -303,6 +305,12 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // tagsToolStripMenuItem
+            // 
+            this.tagsToolStripMenuItem.Name = "tagsToolStripMenuItem";
+            this.tagsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tagsToolStripMenuItem.Text = "Tags";
+            // 
             // frmTimeKeeperMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,6 +324,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmTimeKeeperMain";
             this.Text = "TimeKeeper";
+            this.Load += new System.EventHandler(this.frmTimeKeeperMain_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -357,6 +366,7 @@
         private System.Windows.Forms.GroupBox gbStartControls;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.ToolStripMenuItem tagsToolStripMenuItem;
     }
 }
 

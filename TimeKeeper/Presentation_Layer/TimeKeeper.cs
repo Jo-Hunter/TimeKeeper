@@ -137,5 +137,61 @@ namespace TimeKeeper
             topic.ShowDialog();
             this.Close();
         }
+
+        private void frmTimeKeeperMain_Load(object sender, EventArgs e)
+        {
+            preFillComboBoxes();
+            
+        }
+
+        private void preFillComboBoxes()
+        {
+
+            //string selectTopic = "SELECT * FROM Topics";
+            string selectProject = "SELECT * FROM Projects";
+
+            SqlConnection conn = ConnectionManager.DatabaseConnection();
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(selectProject, conn);
+
+                SqlDataReader sdr = cmd.ExecuteReader();
+
+                
+
+
+                while (sdr.Read())
+                {
+
+                    Project pro = new Project();
+                    pro.ProjectName = sdr["ProjectName"].ToString();
+
+                    cbProject.Items.Add(pro.ProjectName);
+                }
+
+
+
+
+
+                if (sdr != null)
+                {
+                    sdr.Close();
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("unsuccessful " + ex);
+            }
+            
+            
+            
+            
+            // fill topics, 
+            // fill projects
+        }
     }
 }

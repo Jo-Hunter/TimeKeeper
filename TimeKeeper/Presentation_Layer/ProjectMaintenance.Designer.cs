@@ -83,26 +83,26 @@
             // 
             this.btnAddUpdate.Location = new System.Drawing.Point(14, 409);
             this.btnAddUpdate.Name = "btnAddUpdate";
-            this.btnAddUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnAddUpdate.Size = new System.Drawing.Size(114, 23);
             this.btnAddUpdate.TabIndex = 1;
             this.btnAddUpdate.Text = "Add/Update";
             this.btnAddUpdate.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(146, 409);
+            this.btnDelete.Location = new System.Drawing.Point(153, 409);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(114, 23);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(650, 409);
+            this.btnCancel.Location = new System.Drawing.Point(613, 409);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Size = new System.Drawing.Size(174, 23);
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -111,8 +111,8 @@
             // 
             this.btnSearch.Location = new System.Drawing.Point(300, 409);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Size = new System.Drawing.Size(114, 23);
+            this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
