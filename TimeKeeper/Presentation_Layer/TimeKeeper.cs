@@ -133,9 +133,11 @@ namespace TimeKeeper
 
         private void topicsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
             frmTopic topic = new frmTopic();
             topic.ShowDialog();
-            this.Close();
+            //this.Close();
+
         }
 
         private void frmTimeKeeperMain_Load(object sender, EventArgs e)

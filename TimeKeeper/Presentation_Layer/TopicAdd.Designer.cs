@@ -1,6 +1,6 @@
 ﻿namespace TimeKeeper.Presentation_Layer
 {
-    partial class TopicAdd
+    partial class frmTopicAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -105,6 +105,7 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCancel
             // 
@@ -116,7 +117,7 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // TopicAdd
+            // frmTopicAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,7 +125,7 @@
             this.Controls.Add(this.gbTopicButtons);
             this.Controls.Add(this.gbTopic);
             this.Controls.Add(this.gbIdentification);
-            this.Name = "TopicAdd";
+            this.Name = "frmTopicAdd";
             this.Text = "Add New Topic";
             this.Load += new System.EventHandler(this.TopicAdd_Load);
             this.gbIdentification.ResumeLayout(false);

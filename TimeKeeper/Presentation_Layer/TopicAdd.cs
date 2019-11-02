@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TimeKeeper.Presentation_Layer
 {
-    public partial class TopicAdd : Form
+    public partial class frmTopicAdd : Form
     {
-        public TopicAdd()
+        public frmTopicAdd()
         {
             InitializeComponent();
         }
@@ -29,12 +29,26 @@ namespace TimeKeeper.Presentation_Layer
 
         private void TopicAdd_Load(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(tbTopic.Text))
+            {
+                MessageBox.Show("Please enter a topic.");
+
+            }
+            else
+            {
+
+                MessageBox.Show("Not empty");
+            }
         }
     }
 }
