@@ -141,6 +141,11 @@ namespace TimeKeeper
         private void frmTimeKeeperMain_Load(object sender, EventArgs e)
         {
             preFillComboBoxes();
+
+            // if project combobox is written in, it should save a new project, and popup to attach a topic
+            // it should activate if the use leaves the box, and there is something in it
+            // the popup form should also have an opportunity to cancel and correct the project in case they 
+            // just left it.
             
         }
 

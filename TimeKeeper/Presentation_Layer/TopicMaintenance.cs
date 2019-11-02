@@ -74,7 +74,13 @@ namespace TimeKeeper.Presentation_Layer
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            // closes whole proram why?
             this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
