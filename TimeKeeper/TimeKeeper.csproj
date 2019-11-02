@@ -69,6 +69,12 @@
     <Compile Include="Presentation_Layer\TimeKeeper.Designer.cs">
       <DependentUpon>TimeKeeper.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation_Layer\TopicAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation_Layer\TopicAdd.Designer.cs">
+      <DependentUpon>TopicAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation_Layer\TopicMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation_Layer\TimeKeeper.resx">
       <DependentUpon>TimeKeeper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation_Layer\TopicAdd.resx">
+      <DependentUpon>TopicAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation_Layer\TopicMaintenance.resx">
       <DependentUpon>TopicMaintenance.cs</DependentUpon>

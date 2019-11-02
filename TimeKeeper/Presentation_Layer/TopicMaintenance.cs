@@ -74,7 +74,7 @@ namespace TimeKeeper.Presentation_Layer
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            // closes whole proram why?
+            // closes whole program why?
             this.Close();
         }
 
