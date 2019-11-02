@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TimeKeeper.Business_Layer;
+using System.Data.SqlClient;
+using TimeKeeper.Data_Layer;
 
 namespace TimeKeeper.Presentation_Layer
 {
@@ -47,8 +50,47 @@ namespace TimeKeeper.Presentation_Layer
             else
             {
 
-                MessageBox.Show("Not empty");
+                Topics topic = new Topics(GlobalVariables.selectedCategoryID, tbTopic.Text);
+
+                string addQuery;
+
+                // determine if add or update
+                if(GlobalVariables.selectedCategoryID == 0)
+                {
+                    addQuery = "sp_Topics_CreateTopic";
+                }
+                else
+                {
+                    addQuery = "sp_Topics_UpdateTopic";
+                }
+
+                // ake connection etc
+                SqlConnection conn = ConnectionManager.DatabaseConnection();
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(addQuery, conn);
+
+                // Tell program to I am using a stored proc.
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                if (GlobalVariables.selectedCategoryID != 0)
+                {
+                    cmd.Parameters.AddWithValue("@TopicID", topic.TopicID);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@NewTopicID", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                }
+
+                // Use transaction to send data to db
+                cmd.Transaction = conn.BeginTransaction();
+                cmd.ExecuteNonQuery();
+                cmd.Transaction.Commit();
+                // Close connection, close form.
+                conn.Close();
+
             }
+            this.Close();
         }
     }
 }

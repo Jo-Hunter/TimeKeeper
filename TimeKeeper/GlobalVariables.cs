@@ -12,5 +12,7 @@ namespace TimeKeeper
         // Keeps track of the current session.
         public static int currentSessionID;
 
+        public static int selectedCategoryID = 0;
+
     }
 }
