@@ -114,5 +114,26 @@ namespace TimeKeeper.Presentation_Layer
 
 
         }
+
+        private void lvProjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvProjects.SelectedItems.Count >0)
+            {
+                btnAddUpdate.Text = "Update";
+            }
+            else
+            {
+                btnAddUpdate.Text = "Add";
+            }
+        }
+
+        private void btnAddUpdate_Click(object sender, EventArgs e)
+        {
+            frmProjectAdd projectAdd = new frmProjectAdd();
+            projectAdd.ShowDialog();
+
+            lvProjects.Items.Clear();
+            DisplayProjects();
+        }
     }
 }

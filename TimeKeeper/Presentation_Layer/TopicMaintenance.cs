@@ -87,7 +87,7 @@ namespace TimeKeeper.Presentation_Layer
             frmTopicAdd topicAdd = new frmTopicAdd();
             topicAdd.ShowDialog();
 
-            lvTopic.Clear();
+            lvTopic.Items.Clear();
             displayTopics();
         }
 

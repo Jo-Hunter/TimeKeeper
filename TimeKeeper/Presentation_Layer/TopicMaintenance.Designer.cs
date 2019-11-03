@@ -84,7 +84,8 @@
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Topic name";
+            this.columnHeader2.Text = "Topic Name";
+            this.columnHeader2.Width = 150;
             // 
             // frmTopic
             // 

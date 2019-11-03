@@ -34,11 +34,11 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAddUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvProjects
@@ -56,11 +56,11 @@
             this.lvProjects.TabIndex = 0;
             this.lvProjects.UseCompatibleStateImageBehavior = false;
             this.lvProjects.View = System.Windows.Forms.View.Details;
+            this.lvProjects.SelectedIndexChanged += new System.EventHandler(this.lvProjects_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "ProjectID";
-            this.columnHeader1.Width = 120;
             // 
             // columnHeader2
             // 
@@ -74,10 +74,15 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Code Location";
+            this.columnHeader4.Width = 150;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Archive";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Type";
             // 
             // btnAddUpdate
             // 
@@ -85,8 +90,9 @@
             this.btnAddUpdate.Name = "btnAddUpdate";
             this.btnAddUpdate.Size = new System.Drawing.Size(114, 23);
             this.btnAddUpdate.TabIndex = 1;
-            this.btnAddUpdate.Text = "Add/Update";
+            this.btnAddUpdate.Text = "Add";
             this.btnAddUpdate.UseVisualStyleBackColor = true;
+            this.btnAddUpdate.Click += new System.EventHandler(this.btnAddUpdate_Click);
             // 
             // btnDelete
             // 
@@ -115,10 +121,6 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Type";
             // 
             // frmProjects
             // 
