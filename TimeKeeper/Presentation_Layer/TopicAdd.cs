@@ -76,11 +76,14 @@ namespace TimeKeeper.Presentation_Layer
                 {
                     cmd.Parameters.AddWithValue("@TopicID", topic.TopicID);
                 }
-                else
+
+                cmd.Parameters.AddWithValue("@TopicName", topic.TopicName);
+
+                if (GlobalVariables.selectedCategoryID == 0)
                 {
                     cmd.Parameters.AddWithValue("@NewTopicID", SqlDbType.Int).Direction = ParameterDirection.Output;
 
-                }
+                }   
 
                 // Use transaction to send data to db
                 cmd.Transaction = conn.BeginTransaction();
