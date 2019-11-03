@@ -32,7 +32,21 @@ namespace TimeKeeper.Presentation_Layer
 
         private void TopicAdd_Load(object sender, EventArgs e)
         {
-            
+            if (GlobalVariables.selectedCategoryID > 0)
+            {
+                txtTopicID.Visible = true;
+                lblTopicIdentification.Text = "Topic ID:";
+                txtTopicID.Text = GlobalVariables.selectedCategoryID.ToString();
+                this.Text = "Update Topic";
+                btnAdd.Text = "Update";
+            }
+            else
+            {
+                txtTopicID.Visible = false;
+                lblTopicIdentification.Text = "Topic will automatically give itself an ID";
+                this.Text = "Add New Topic";
+                btnAdd.Text = "Add";
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

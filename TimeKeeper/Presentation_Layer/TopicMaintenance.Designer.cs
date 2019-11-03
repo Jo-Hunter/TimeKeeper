@@ -52,7 +52,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(127, 23);
             this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "Add/Update";
+            this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -76,6 +76,7 @@
             this.lvTopic.TabIndex = 4;
             this.lvTopic.UseCompatibleStateImageBehavior = false;
             this.lvTopic.View = System.Windows.Forms.View.Details;
+            this.lvTopic.SelectedIndexChanged += new System.EventHandler(this.lvTopic_SelectedIndexChanged);
             // 
             // columnHeader1
             // 

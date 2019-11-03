@@ -80,11 +80,28 @@ namespace TimeKeeper.Presentation_Layer
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (lvTopic.SelectedItems.Count > 0)
+            {
+                GlobalVariables.selectedCategoryID = int.Parse(lvTopic.SelectedItems[0].Text);
+            }
             frmTopicAdd topicAdd = new frmTopicAdd();
             topicAdd.ShowDialog();
 
             lvTopic.Clear();
             displayTopics();
+        }
+
+        private void lvTopic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvTopic.SelectedItems.Count > 0)
+            {
+                btnAdd.Text = "Update";
+            }
+            else
+            {
+                btnAdd.Text = "Add";
+            }
+       
         }
     }
 }

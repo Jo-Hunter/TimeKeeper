@@ -36,6 +36,7 @@
             this.tbTopic = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.txtTopicID = new System.Windows.Forms.TextBox();
             this.gbIdentification.SuspendLayout();
             this.gbTopic.SuspendLayout();
             this.gbTopicButtons.SuspendLayout();
@@ -43,6 +44,7 @@
             // 
             // gbIdentification
             // 
+            this.gbIdentification.Controls.Add(this.txtTopicID);
             this.gbIdentification.Controls.Add(this.lblTopicIdentification);
             this.gbIdentification.Location = new System.Drawing.Point(44, 29);
             this.gbIdentification.Name = "gbIdentification";
@@ -117,6 +119,15 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // txtTopicID
+            // 
+            this.txtTopicID.Enabled = false;
+            this.txtTopicID.Location = new System.Drawing.Point(125, 20);
+            this.txtTopicID.Name = "txtTopicID";
+            this.txtTopicID.Size = new System.Drawing.Size(194, 20);
+            this.txtTopicID.TabIndex = 1;
+            this.txtTopicID.Visible = false;
+            // 
             // frmTopicAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,5 +158,6 @@
         private System.Windows.Forms.GroupBox gbTopicButtons;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txtTopicID;
     }
 }
