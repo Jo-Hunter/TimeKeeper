@@ -31,6 +31,20 @@ namespace TimeKeeper
             // this only opens the dialog and doesn't open a file... 
             // just need to check on github auth
             //openFileDialog1.ShowDialog();
+
+
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter =
+               "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            dialog.InitialDirectory = "C:\\";
+            dialog.Title = "Select a text file";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string fname = dialog.FileName;
+                //richTextBox1.Text = System.IO.File.ReadAllText(fname);
+                MessageBox.Show(fname.ToString());
+
+            }
         }
 
         /// <summary>

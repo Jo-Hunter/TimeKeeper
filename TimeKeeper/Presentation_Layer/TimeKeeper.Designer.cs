@@ -56,6 +56,7 @@
             this.gbStartControls = new System.Windows.Forms.GroupBox();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -245,40 +246,40 @@
             // topicsTSMI
             // 
             this.topicsTSMI.Name = "topicsTSMI";
-            this.topicsTSMI.Size = new System.Drawing.Size(152, 22);
+            this.topicsTSMI.Size = new System.Drawing.Size(116, 22);
             this.topicsTSMI.Text = "Topics";
             this.topicsTSMI.Click += new System.EventHandler(this.topicsToolStripMenuItem_Click);
             // 
             // projectsToolStripMenuItem
             // 
             this.projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
-            this.projectsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.projectsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.projectsToolStripMenuItem.Text = "Projects";
             this.projectsToolStripMenuItem.Click += new System.EventHandler(this.projectsToolStripMenuItem_Click);
             // 
             // notesToolStripMenuItem
             // 
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.notesToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.notesToolStripMenuItem.Text = "Notes";
             this.notesToolStripMenuItem.Click += new System.EventHandler(this.notesToolStripMenuItem_Click);
             // 
             // linksToolStripMenuItem
             // 
             this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
-            this.linksToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.linksToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.linksToolStripMenuItem.Text = "Links";
             // 
             // extraToolStripMenuItem
             // 
             this.extraToolStripMenuItem.Name = "extraToolStripMenuItem";
-            this.extraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.extraToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.extraToolStripMenuItem.Text = "Extra";
             // 
             // tagsToolStripMenuItem
             // 
             this.tagsToolStripMenuItem.Name = "tagsToolStripMenuItem";
-            this.tagsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tagsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.tagsToolStripMenuItem.Text = "Tags";
             // 
             // gbStartControls
@@ -310,6 +311,10 @@
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
             // 
             // frmTimeKeeperMain
             // 
@@ -367,6 +372,7 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.ToolStripMenuItem tagsToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
     }
 }
 
