@@ -43,6 +43,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.txtFileDialog = new System.Windows.Forms.TextBox();
             this.gbProjectID.SuspendLayout();
             this.gbProperties.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +61,7 @@
             // 
             // gbProperties
             // 
+            this.gbProperties.Controls.Add(this.txtFileDialog);
             this.gbProperties.Controls.Add(this.chkArchive);
             this.gbProperties.Controls.Add(this.cbType);
             this.gbProperties.Controls.Add(this.cbTopic);
@@ -187,6 +190,14 @@
             this.txtID.TabIndex = 1;
             this.txtID.Visible = false;
             // 
+            // txtFileDialog
+            // 
+            this.txtFileDialog.Location = new System.Drawing.Point(205, 78);
+            this.txtFileDialog.Name = "txtFileDialog";
+            this.txtFileDialog.Size = new System.Drawing.Size(270, 20);
+            this.txtFileDialog.TabIndex = 9;
+            this.txtFileDialog.Click += new System.EventHandler(this.txtFileDialog_Click);
+            // 
             // frmProjectAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,5 +234,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.TextBox txtFileDialog;
     }
 }
