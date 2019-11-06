@@ -11,6 +11,9 @@ using TimeKeeper.Business_Layer;
 using TimeKeeper.Data_Layer;
 using System.Data.SqlClient;
 using TimeKeeper.Presentation_Layer;
+using System.Xml.Linq;
+using Microsoft.Office.Interop.Word;
+using System.Diagnostics;
 
 namespace TimeKeeper
 {
@@ -19,6 +22,7 @@ namespace TimeKeeper
         public frmTimeKeeperMain()
         {
             InitializeComponent();
+            
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -34,15 +38,20 @@ namespace TimeKeeper
 
 
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter =
-               "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            //dialog.Filter =
+            //   "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             dialog.InitialDirectory = "C:\\";
             dialog.Title = "Select a text file";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 string fname = dialog.FileName;
-                //richTextBox1.Text = System.IO.File.ReadAllText(fname);
-                MessageBox.Show(fname.ToString());
+                //MessageBox.Show(fname.ToString());
+
+
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                Process.Start("WINWORD.EXE", "\"" + fname.ToString() + "\"");
+                
+                // now save the file location to the Session table
 
             }
         }
