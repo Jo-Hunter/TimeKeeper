@@ -32,26 +32,19 @@
             this.cbTopic = new System.Windows.Forms.ComboBox();
             this.lblProject = new System.Windows.Forms.Label();
             this.cbProject = new System.Windows.Forms.ComboBox();
-            this.chkTopicArchive = new System.Windows.Forms.CheckBox();
-            this.chkArchivedProject = new System.Windows.Forms.CheckBox();
             this.rbNewNote = new System.Windows.Forms.RadioButton();
             this.rbOpenExisting = new System.Windows.Forms.RadioButton();
             this.rbSelectNotes = new System.Windows.Forms.RadioButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.btnAddTags = new System.Windows.Forms.Button();
             this.btnAddLinks = new System.Windows.Forms.Button();
-            this.btnAddInfo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topicsTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.linksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbStartControls = new System.Windows.Forms.GroupBox();
             this.btnStop = new System.Windows.Forms.Button();
@@ -59,7 +52,6 @@
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.gbStartControls.SuspendLayout();
             this.SuspendLayout();
@@ -98,26 +90,6 @@
             this.cbProject.Size = new System.Drawing.Size(99, 21);
             this.cbProject.TabIndex = 4;
             // 
-            // chkTopicArchive
-            // 
-            this.chkTopicArchive.AutoSize = true;
-            this.chkTopicArchive.Location = new System.Drawing.Point(307, 16);
-            this.chkTopicArchive.Name = "chkTopicArchive";
-            this.chkTopicArchive.Size = new System.Drawing.Size(117, 17);
-            this.chkTopicArchive.TabIndex = 5;
-            this.chkTopicArchive.Text = "Check for Archived";
-            this.chkTopicArchive.UseVisualStyleBackColor = true;
-            // 
-            // chkArchivedProject
-            // 
-            this.chkArchivedProject.AutoSize = true;
-            this.chkArchivedProject.Location = new System.Drawing.Point(307, 63);
-            this.chkArchivedProject.Name = "chkArchivedProject";
-            this.chkArchivedProject.Size = new System.Drawing.Size(117, 17);
-            this.chkArchivedProject.TabIndex = 6;
-            this.chkArchivedProject.Text = "Check for Archived";
-            this.chkArchivedProject.UseVisualStyleBackColor = true;
-            // 
             // rbNewNote
             // 
             this.rbNewNote.AutoSize = true;
@@ -128,7 +100,7 @@
             this.rbNewNote.TabStop = true;
             this.rbNewNote.Text = "Open New Study Notes document";
             this.rbNewNote.UseVisualStyleBackColor = true;
-            this.rbNewNote.Visible = false;
+            this.rbNewNote.CheckedChanged += new System.EventHandler(this.rbNewNote_CheckedChanged);
             // 
             // rbOpenExisting
             // 
@@ -152,49 +124,31 @@
             this.rbSelectNotes.TabStop = true;
             this.rbSelectNotes.Text = "Select Study Notes (don\'t open)";
             this.rbSelectNotes.UseVisualStyleBackColor = true;
+            this.rbSelectNotes.CheckedChanged += new System.EventHandler(this.rbSelectNotes_CheckedChanged);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // btnAddTags
-            // 
-            this.btnAddTags.Location = new System.Drawing.Point(37, 42);
-            this.btnAddTags.Name = "btnAddTags";
-            this.btnAddTags.Size = new System.Drawing.Size(75, 23);
-            this.btnAddTags.TabIndex = 10;
-            this.btnAddTags.Text = "Add tags";
-            this.btnAddTags.UseVisualStyleBackColor = true;
-            // 
             // btnAddLinks
             // 
-            this.btnAddLinks.Location = new System.Drawing.Point(364, 42);
+            this.btnAddLinks.Location = new System.Drawing.Point(364, 11);
             this.btnAddLinks.Name = "btnAddLinks";
-            this.btnAddLinks.Size = new System.Drawing.Size(75, 23);
+            this.btnAddLinks.Size = new System.Drawing.Size(162, 23);
             this.btnAddLinks.TabIndex = 11;
             this.btnAddLinks.Text = "Add Links";
             this.btnAddLinks.UseVisualStyleBackColor = true;
             // 
-            // btnAddInfo
-            // 
-            this.btnAddInfo.Location = new System.Drawing.Point(208, 42);
-            this.btnAddInfo.Name = "btnAddInfo";
-            this.btnAddInfo.Size = new System.Drawing.Size(75, 23);
-            this.btnAddInfo.TabIndex = 12;
-            this.btnAddInfo.Text = "Add Info";
-            this.btnAddInfo.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAddLinks);
             this.groupBox1.Controls.Add(this.lblTopic);
             this.groupBox1.Controls.Add(this.cbTopic);
             this.groupBox1.Controls.Add(this.lblProject);
-            this.groupBox1.Controls.Add(this.chkArchivedProject);
             this.groupBox1.Controls.Add(this.cbProject);
-            this.groupBox1.Controls.Add(this.chkTopicArchive);
             this.groupBox1.Location = new System.Drawing.Point(35, 61);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(439, 100);
+            this.groupBox1.Size = new System.Drawing.Size(551, 100);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
@@ -209,24 +163,13 @@
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnAddInfo);
-            this.groupBox3.Controls.Add(this.btnAddLinks);
-            this.groupBox3.Controls.Add(this.btnAddTags);
-            this.groupBox3.Location = new System.Drawing.Point(35, 313);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(475, 100);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dataToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(650, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(633, 24);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -235,9 +178,7 @@
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.topicsTSMI,
             this.projectsToolStripMenuItem,
-            this.notesToolStripMenuItem,
             this.linksToolStripMenuItem,
-            this.extraToolStripMenuItem,
             this.tagsToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
@@ -257,24 +198,11 @@
             this.projectsToolStripMenuItem.Text = "Projects";
             this.projectsToolStripMenuItem.Click += new System.EventHandler(this.projectsToolStripMenuItem_Click);
             // 
-            // notesToolStripMenuItem
-            // 
-            this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.notesToolStripMenuItem.Text = "Notes";
-            this.notesToolStripMenuItem.Click += new System.EventHandler(this.notesToolStripMenuItem_Click);
-            // 
             // linksToolStripMenuItem
             // 
             this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
             this.linksToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.linksToolStripMenuItem.Text = "Links";
-            // 
-            // extraToolStripMenuItem
-            // 
-            this.extraToolStripMenuItem.Name = "extraToolStripMenuItem";
-            this.extraToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.extraToolStripMenuItem.Text = "Extra";
             // 
             // tagsToolStripMenuItem
             // 
@@ -320,9 +248,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 450);
+            this.ClientSize = new System.Drawing.Size(633, 354);
             this.Controls.Add(this.gbStartControls);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -334,7 +261,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gbStartControls.ResumeLayout(false);
@@ -348,26 +274,19 @@
         private System.Windows.Forms.ComboBox cbTopic;
         private System.Windows.Forms.Label lblProject;
         private System.Windows.Forms.ComboBox cbProject;
-        private System.Windows.Forms.CheckBox chkTopicArchive;
-        private System.Windows.Forms.CheckBox chkArchivedProject;
         private System.Windows.Forms.RadioButton rbNewNote;
         private System.Windows.Forms.RadioButton rbOpenExisting;
         private System.Windows.Forms.RadioButton rbSelectNotes;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.Button btnAddTags;
         private System.Windows.Forms.Button btnAddLinks;
-        private System.Windows.Forms.Button btnAddInfo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem topicsTSMI;
         private System.Windows.Forms.ToolStripMenuItem projectsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem notesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem linksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem extraToolStripMenuItem;
         private System.Windows.Forms.GroupBox gbStartControls;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnStart;

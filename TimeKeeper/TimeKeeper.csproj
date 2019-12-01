@@ -80,18 +80,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business_Layer\Notes.cs" />
     <Compile Include="Business_Layer\Project.cs" />
     <Compile Include="Business_Layer\Session.cs" />
     <Compile Include="Business_Layer\Topics.cs" />
     <Compile Include="Data_Layer\ConnectionManager.cs" />
     <Compile Include="GlobalVariables.cs" />
-    <Compile Include="Presentation_Layer\NoteMaintenance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation_Layer\NoteMaintenance.Designer.cs">
-      <DependentUpon>NoteMaintenance.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presentation_Layer\ProjectAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,9 +117,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Presentation_Layer\NoteMaintenance.resx">
-      <DependentUpon>NoteMaintenance.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presentation_Layer\ProjectAdd.resx">
       <DependentUpon>ProjectAdd.cs</DependentUpon>
     </EmbeddedResource>

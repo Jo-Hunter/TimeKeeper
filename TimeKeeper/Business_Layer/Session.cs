@@ -13,7 +13,7 @@ namespace TimeKeeper.Business_Layer
         //Declare default constuctor
         //Parameterised Constructor
 
-        private int sessionID, topicID, projectID, sessionTagsID, sessionNotesID, extraID, sessionLinksID;
+        private int sessionID, topicID, projectID, sessionTagsID, sessionNotesID, extraID, sessionLinksID, typeID;
         private DateTime startTime, stopTime;
        
         //Set-Get properties
@@ -70,7 +70,12 @@ namespace TimeKeeper.Business_Layer
             get { return stopTime; }
             set { stopTime = value; }
         }
-       
+
+        public int TypeID
+        {
+            get { return typeID; }
+            set { typeID = value; }
+        }
 
         public Session() { }
 
@@ -78,7 +83,7 @@ namespace TimeKeeper.Business_Layer
 
 
         public Session(int sessionID, int topicID, int projectID, int sessionTagsID, int sessionNotesID, 
-            int extraID, int sessionLinksID, DateTime startTime, DateTime stopTime)
+            int extraID, int sessionLinksID, int typeID, DateTime startTime, DateTime stopTime)
         {
             SessionID = sessionID;
             TopicID = topicID;
@@ -87,6 +92,7 @@ namespace TimeKeeper.Business_Layer
             SessionNotesID = sessionNotesID;
             ExtraID = extraID;
             SessionLinksID = sessionLinksID;
+            TypeID = typeID;
             StartTime = startTime;
             StopTime = stopTime;
             
