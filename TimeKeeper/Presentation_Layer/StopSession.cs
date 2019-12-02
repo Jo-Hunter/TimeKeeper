@@ -19,7 +19,7 @@ namespace TimeKeeper.Presentation_Layer
 
         private void frmStop_Load(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
     }
 }
