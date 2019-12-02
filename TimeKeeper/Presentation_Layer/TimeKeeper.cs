@@ -192,48 +192,11 @@ namespace TimeKeeper
 
         private void preFillComboBoxes()
         {
-            // no these are linked so you can't pre-fill projects without knowking what topic...
-
 
             string selectTopic = "SELECT * FROM Topics";
-            //string selectProject = "SELECT * FROM Projects";
+           
 
             SqlConnection conn = ConnectionManager.DatabaseConnection();
-
-            //try
-            //{
-            //    conn.Open();
-            //    SqlCommand cmd = new SqlCommand(selectProject, conn);
-
-            //    SqlDataReader sdr = cmd.ExecuteReader();
-
-
-
-
-            //    while (sdr.Read())
-            //    {
-
-            //        Project pro = new Project();
-            //        pro.ProjectName = sdr["ProjectName"].ToString();
-
-            //        cbProject.Items.Add(pro.ProjectName);
-            //    }
-
-
-
-
-
-            //    if (sdr != null)
-            //    {
-            //        sdr.Close();
-            //    }
-
-            //    conn.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("unsuccessful " + ex);
-            //}
 
             try
             {
@@ -241,9 +204,6 @@ namespace TimeKeeper
                 SqlCommand cmd = new SqlCommand(selectTopic, conn);
 
                 SqlDataReader sdr = cmd.ExecuteReader();
-
-
-
 
                 while (sdr.Read())
                 {
@@ -260,9 +220,6 @@ namespace TimeKeeper
                 }
 
 
-
-
-
                 if (sdr != null)
                 {
                     sdr.Close();
@@ -275,9 +232,6 @@ namespace TimeKeeper
                 MessageBox.Show("unsuccessful " + ex);
             }
 
-
-            // fill topics, 
-            // fill projects
         }
 
         private void rbSelectNotes_CheckedChanged(object sender, EventArgs e)
