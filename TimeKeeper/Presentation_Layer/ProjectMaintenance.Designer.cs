@@ -33,8 +33,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAddUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -47,9 +45,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader4});
             this.lvProjects.Location = new System.Drawing.Point(14, 16);
             this.lvProjects.Name = "lvProjects";
             this.lvProjects.Size = new System.Drawing.Size(773, 369);
@@ -73,16 +69,8 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Code Location";
+            this.columnHeader4.Text = "Folder Location";
             this.columnHeader4.Width = 150;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Archive";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Type";
             // 
             // btnAddUpdate
             // 
@@ -146,11 +134,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button btnAddUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }

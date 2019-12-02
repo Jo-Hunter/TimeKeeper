@@ -138,6 +138,7 @@
             this.btnAddLinks.TabIndex = 11;
             this.btnAddLinks.Text = "Add Links";
             this.btnAddLinks.UseVisualStyleBackColor = true;
+            this.btnAddLinks.Click += new System.EventHandler(this.btnAddLinks_Click);
             // 
             // groupBox1
             // 
@@ -201,8 +202,9 @@
             // linksToolStripMenuItem
             // 
             this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
-            this.linksToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.linksToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.linksToolStripMenuItem.Text = "Links";
+            this.linksToolStripMenuItem.Click += new System.EventHandler(this.linksToolStripMenuItem_Click);
             // 
             // tagsToolStripMenuItem
             // 

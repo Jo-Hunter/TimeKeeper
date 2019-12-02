@@ -355,5 +355,19 @@ namespace TimeKeeper
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnAddLinks_Click(object sender, EventArgs e)
+        {
+            frmAddLink addL = new frmAddLink();
+            addL.Show();
+            this.Hide();
+        }
+
+        private void linksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLinksMaint linksM = new frmLinksMaint();
+            linksM.ShowDialog();
+            this.Hide();
+        }
     }
 }
