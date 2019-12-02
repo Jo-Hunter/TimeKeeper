@@ -155,13 +155,13 @@ namespace TimeKeeper
             
         }
 
-        private void notesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmNotes notes = new frmNotes();
-            notes.ShowDialog();
-            this.Hide();
+        //private void notesToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    frmNotes notes = new frmNotes();
+        //    notes.ShowDialog();
+        //    this.Hide();
             
-        }
+        //}
 
         private void topicsToolStripMenuItem_Click(object sender, EventArgs e)
         {
