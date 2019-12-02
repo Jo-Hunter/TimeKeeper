@@ -252,8 +252,10 @@ namespace TimeKeeper
 
                     Topics top = new Topics();
                     top.TopicName = sdr["TopicName"].ToString();
+                    top.TopicID = int.Parse(sdr["TopicID"].ToString());
 
                     cbTopic.Items.Add(top.TopicName);
+                    GlobalVariables.selectedTopicID = top.TopicID;
                     //cbProject.Items.Add(pro.ProjectName);
                 }
 
@@ -464,6 +466,50 @@ namespace TimeKeeper
                 MessageBox.Show("unsuccessful " + ex);
             }
             GlobalVariables.currentSessionID = 0;
+        }
+
+        private void cbTopic_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+
+
+            string selectProject = "SELECT * FROM Projects WHERE TopicID = " + GlobalVariables.selectedTopicID;
+            MessageBox.Show(selectProject);
+            SqlConnection conn = ConnectionManager.DatabaseConnection();
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(selectProject, conn);
+
+                SqlDataReader sdr = cmd.ExecuteReader();
+
+
+
+
+                while (sdr.Read())
+                {
+
+                    Project pro = new Project();
+                    pro.ProjectName = sdr["ProjectName"].ToString();
+
+                    cbProject.Items.Add(pro.ProjectName);
+                }
+
+
+
+
+
+                if (sdr != null)
+                {
+                    sdr.Close();
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("unsuccessful " + ex);
+            }
         }
     }
 }

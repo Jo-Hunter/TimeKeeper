@@ -72,6 +72,7 @@
             this.cbTopic.Name = "cbTopic";
             this.cbTopic.Size = new System.Drawing.Size(99, 21);
             this.cbTopic.TabIndex = 2;
+            this.cbTopic.SelectedIndexChanged += new System.EventHandler(this.cbTopic_SelectedIndexChanged);
             // 
             // lblProject
             // 
