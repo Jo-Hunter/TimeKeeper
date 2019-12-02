@@ -258,6 +258,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmTimeKeeperMain";
             this.Text = "TimeKeeper";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmTimeKeeperMain_FormClosed);
             this.Load += new System.EventHandler(this.frmTimeKeeperMain_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

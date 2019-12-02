@@ -79,7 +79,14 @@ namespace TimeKeeper
             session.StartTime = start;
             
             string addQuery = "sp_Sessions_NewSession";
-
+            if (cbTopic.Text == null)
+            {
+                MessageBox.Show("topic is null");
+            }
+            else
+            {
+                MessageBox.Show("someting is in topic");
+            }
             try
             {
                 SqlConnection conn = ConnectionManager.DatabaseConnection();
@@ -111,40 +118,40 @@ namespace TimeKeeper
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-
-            DateTime end = DateTime.Now;
+            CloseSession();
+            //DateTime end = DateTime.Now;
             
-            // Create a session using the current session ID with the new information.
-            Session session = new Session();
-            session.SessionID = int.Parse(GlobalVariables.currentSessionID.ToString());
-            session.StopTime = end;
+            //// Create a session using the current session ID with the new information.
+            //Session session = new Session();
+            //session.SessionID = int.Parse(GlobalVariables.currentSessionID.ToString());
+            //session.StopTime = end;
 
 
-            string updateQuery = "sp_Sessions_EndSession";
+            //string updateQuery = "sp_Sessions_EndSession";
 
-            try
-            {
+            //try
+            //{
                 
-                SqlConnection conn = ConnectionManager.DatabaseConnection();
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(updateQuery, conn);
+            //    SqlConnection conn = ConnectionManager.DatabaseConnection();
+            //    conn.Open();
+            //    SqlCommand cmd = new SqlCommand(updateQuery, conn);
 
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@SessionID", session.SessionID);
-                cmd.Parameters.AddWithValue("@StopTime", session.StopTime);
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.Parameters.AddWithValue("@SessionID", session.SessionID);
+            //    cmd.Parameters.AddWithValue("@StopTime", session.StopTime);
 
-                cmd.Transaction = conn.BeginTransaction();
-                cmd.ExecuteNonQuery();
-                cmd.Transaction.Commit();
+            //    cmd.Transaction = conn.BeginTransaction();
+            //    cmd.ExecuteNonQuery();
+            //    cmd.Transaction.Commit();
 
-                conn.Close();
+            //    conn.Close();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("unsuccessful " + ex);
-            }
-            GlobalVariables.currentSessionID = 0;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("unsuccessful " + ex);
+            //}
+            //GlobalVariables.currentSessionID = 0;
         }
 
         private void projectsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -368,6 +375,57 @@ namespace TimeKeeper
             frmLinksMaint linksM = new frmLinksMaint();
             linksM.ShowDialog();
             this.Hide();
+        }
+
+        private void frmTimeKeeperMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (GlobalVariables.currentSessionID != 0)
+            {
+
+                MessageBox.Show("session was not stopped");
+                CloseSession();
+            }
+            else
+            {
+                MessageBox.Show("no currebnt session open");
+            }
+        }
+
+        public void CloseSession()
+        {
+            DateTime end = DateTime.Now;
+
+            // Create a session using the current session ID with the new information.
+            Session session = new Session();
+            session.SessionID = int.Parse(GlobalVariables.currentSessionID.ToString());
+            session.StopTime = end;
+
+
+            string updateQuery = "sp_Sessions_EndSession";
+
+            try
+            {
+
+                SqlConnection conn = ConnectionManager.DatabaseConnection();
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(updateQuery, conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SessionID", session.SessionID);
+                cmd.Parameters.AddWithValue("@StopTime", session.StopTime);
+
+                cmd.Transaction = conn.BeginTransaction();
+                cmd.ExecuteNonQuery();
+                cmd.Transaction.Commit();
+
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("unsuccessful " + ex);
+            }
+            GlobalVariables.currentSessionID = 0;
         }
     }
 }
