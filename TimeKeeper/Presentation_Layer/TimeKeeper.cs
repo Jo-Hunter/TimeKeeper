@@ -420,11 +420,27 @@ namespace TimeKeeper
                 MessageBox.Show("unsuccessful " + ex);
             }
             GlobalVariables.currentSessionID = 0;
+
+            // close off globals and clear form.
+            GlobalVariables.currentSessionID = 0;
+            GlobalVariables.selectedTopicID = 0;
+            GlobalVariables.selectedCategoryID = 0;
+            cbTopic.Text = null;
+            cbProject.Text = null;
+
         }
 
         private void cbTopic_SelectedIndexChanged(object sender, EventArgs e)
-        { 
+        {
+            //if topic changed, check if there is a session in progress, and if so, 
+            // stop and display a popup box with a info and a button.
+            // are you stopping this current session yes/no.
 
+            if (GlobalVariables.currentSessionID!=0)
+            {
+                frmStop st = new frmStop();
+            }
+            
 
             string selectProject = "SELECT * FROM Projects WHERE TopicID = " + GlobalVariables.selectedTopicID;
             MessageBox.Show(selectProject);
@@ -464,6 +480,11 @@ namespace TimeKeeper
             {
                 MessageBox.Show("unsuccessful " + ex);
             }
+        }
+
+        private void cbProject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // pop up box, you have selected XXX project, are you ready to start a new session? yes/cancel
         }
     }
 }

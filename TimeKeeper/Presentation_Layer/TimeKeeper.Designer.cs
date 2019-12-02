@@ -90,6 +90,7 @@
             this.cbProject.Name = "cbProject";
             this.cbProject.Size = new System.Drawing.Size(99, 21);
             this.cbProject.TabIndex = 4;
+            this.cbProject.SelectedIndexChanged += new System.EventHandler(this.cbProject_SelectedIndexChanged);
             // 
             // rbNewNote
             // 
