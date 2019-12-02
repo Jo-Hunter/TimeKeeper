@@ -208,17 +208,12 @@ namespace TimeKeeper
                 while (sdr.Read())
                 {
 
-                    //Project pro = new Project();
-
                     Topics top = new Topics();
                     top.TopicName = sdr["TopicName"].ToString();
                     top.TopicID = int.Parse(sdr["TopicID"].ToString());
 
-                    cbTopic.Items.Add(top.TopicName);
-                    GlobalVariables.selectedTopicID = top.TopicID;
-                    //cbProject.Items.Add(pro.ProjectName);
+                    cbTopic.Items.Add(top.TopicName);                    
                 }
-
 
                 if (sdr != null)
                 {
@@ -436,15 +431,57 @@ namespace TimeKeeper
             // stop and display a popup box with a info and a button.
             // are you stopping this current session yes/no.
 
+
+
             if (GlobalVariables.currentSessionID!=0)
             {
                 frmStop st = new frmStop();
             }
-            
+
+            // antoher way of doing this is to hava a hidden list on the form that records the number.
+            // but for now I am going to grab it from the database.
+
+           
+            string getID = "SELECT * FROM Topics WHERE TopicName = " + "'" + cbTopic.Text + "'";
+            MessageBox.Show(getID);
+
+            SqlConnection conn = ConnectionManager.DatabaseConnection();
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(getID, conn);
+
+                SqlDataReader sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+
+                    Topics top = new Topics();
+                    top.TopicName = sdr["TopicName"].ToString();
+                    top.TopicID = int.Parse(sdr["TopicID"].ToString());
+
+                    GlobalVariables.selectedTopicID = top.TopicID;
+                }
+
+                if (sdr != null)
+                {
+                    sdr.Close();
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("unsuccessful " + ex);
+            }
+            // first get topicID need topic ID as that is the foreign key
+
+
 
             string selectProject = "SELECT * FROM Projects WHERE TopicID = " + GlobalVariables.selectedTopicID;
             MessageBox.Show(selectProject);
-            SqlConnection conn = ConnectionManager.DatabaseConnection();
+            //SqlConnection conn = ConnectionManager.DatabaseConnection();
 
             try
             {
@@ -485,6 +522,45 @@ namespace TimeKeeper
         private void cbProject_SelectedIndexChanged(object sender, EventArgs e)
         {
             // pop up box, you have selected XXX project, are you ready to start a new session? yes/cancel
+
+            string selectProject = "SELECT * FROM Projects WHERE TopicID = " + GlobalVariables.selectedTopicID;
+            MessageBox.Show(selectProject);
+            SqlConnection conn = ConnectionManager.DatabaseConnection();
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(selectProject, conn);
+
+                SqlDataReader sdr = cmd.ExecuteReader();
+
+
+
+
+                while (sdr.Read())
+                {
+
+                    Project pro = new Project();
+                    pro.ProjectName = sdr["ProjectName"].ToString();
+
+                    cbProject.Items.Add(pro.ProjectName);
+                }
+
+
+
+
+
+                if (sdr != null)
+                {
+                    sdr.Close();
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("unsuccessful " + ex);
+            }
         }
     }
 }
