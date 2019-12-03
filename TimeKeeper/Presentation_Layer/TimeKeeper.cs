@@ -435,118 +435,109 @@ namespace TimeKeeper
 
         }
 
+        //if topic changed, check if there is a session in progress, and if so, 
+        // stop and display a popup box with a info and a button.
         private void cbTopic_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if topic changed, check if there is a session in progress, and if so, 
-            // stop and display a popup box with a info and a button.
-           
-            MessageBox.Show("topic index changed");
-            //MessageBox.Show("current session ID = " + GlobalVariables.currentSessionID);
-
-            
-            MessageBox.Show("selected = " + cbTopic.Text + "saved topic = " + GlobalVariables.selectedTopicName);
-
+     
             // if there is a current session running and I haven't programmatically replaced the old topic
             if (GlobalVariables.currentSessionID!=0 && cbTopic.Text != GlobalVariables.selectedTopicName)
             {
-
-                //MessageBox.Show("there is a session in progress so open stop popup");
-
+                // open the stop session form
                 frmStop st = new frmStop();
                 st.ShowDialog();
+                // once closed, clear ???
+                //cbProject.Items.Clear();
 
-                cbProject.Items.Clear();
+                // if user has cancelled and wants to continue the current session
                 if (GlobalVariables.currentSessionID != 0)
                 {
-                    //MessageBox.Show("change was cancelled in the popup box so return to normal");
-                    
+                    // return the topic to what it was before they changed it
                     cbTopic.Text = GlobalVariables.selectedTopicName;
                     
                 }
             }
-            
 
-            MessageBox.Show("the saved topic name is " + GlobalVariables.selectedTopicName);
-            // put all of this inside another if session = 0 condition. if they press cancel, return the combobox to the original and 
-            // let them keep working. Only continue on if they end the session. 
 
-            // doesn't need to be inside the condition. What it needs is the correct text in the combobox..
-            // so i remove the condition
+            //MessageBox.Show("selected = " + cbTopic.Text + "saved topic = " + GlobalVariables.selectedTopicName);
+            //MessageBox.Show("the saved topic name is " + GlobalVariables.selectedTopicName);
 
-            // antoher way of doing this is to hava a hidden list on the form that records the number.
-            // but for now I am going to grab it from the database.
-
-            //MessageBox.Show("there is no session in progress");
-
-            string getID = "SELECT * FROM Topics WHERE TopicName = " + "'" + cbTopic.Text + "'";
-            //MessageBox.Show(getID);
-
-            SqlConnection conn = ConnectionManager.DatabaseConnection();
-
-            try
+            // if the topic has in fact changed (this will skip if user cancelled)
+            if (cbTopic.Text != GlobalVariables.selectedTopicName)
             {
-                //MessageBox.Show("try to get the topic details from the db");
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(getID, conn);
+                
+                // antoher way of doing this is to hava a hidden list on the form that records the number.
+                // but for now I am going to grab it from the database.
+                
+                string getID = "SELECT * FROM Topics WHERE TopicName = " + "'" + cbTopic.Text + "'";
+               
+                SqlConnection conn = ConnectionManager.DatabaseConnection();
 
-                SqlDataReader sdr = cmd.ExecuteReader();
-
-                while (sdr.Read())
+                
+                try // try to get the Topic ID number using the name and save in globals
                 {
+                    
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(getID, conn);
 
-                    Topics top = new Topics();
-                    top.TopicName = sdr["TopicName"].ToString();
-                    top.TopicID = int.Parse(sdr["TopicID"].ToString());
+                    SqlDataReader sdr = cmd.ExecuteReader();
 
-                    GlobalVariables.selectedTopicID = top.TopicID;
-                    GlobalVariables.selectedTopicName = top.TopicName;
+                    while (sdr.Read())
+                    {
+
+                        Topics top = new Topics();
+                        top.TopicName = sdr["TopicName"].ToString();
+                        top.TopicID = int.Parse(sdr["TopicID"].ToString());
+
+                        GlobalVariables.selectedTopicID = top.TopicID;
+                        GlobalVariables.selectedTopicName = top.TopicName;
+                    }
+
+                    if (sdr != null)
+                    {
+                        sdr.Close();
+                    }
+                    conn.Close();
                 }
-
-                if (sdr != null)
+                catch (Exception ex)
                 {
-                    sdr.Close();
-                }
-
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("unsuccessful " + ex);
-            }
-
-
-            string selectProject = "SELECT * FROM Projects WHERE TopicID = " + GlobalVariables.selectedTopicID;
-
-            try
-            {
-                MessageBox.Show("try to populate the project list");
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(selectProject, conn);
-
-                SqlDataReader sdr = cmd.ExecuteReader();
-
-
-                while (sdr.Read())
-                {
-
-                    Project pro = new Project();
-                    pro.ProjectName = sdr["ProjectName"].ToString();
-
-                    cbProject.Items.Add(pro.ProjectName);
+                    MessageBox.Show("unsuccessful " + ex);
                 }
 
 
-                if (sdr != null)
-                {
-                    sdr.Close();
-                }
+                string selectProject = "SELECT * FROM Projects WHERE TopicID = " + GlobalVariables.selectedTopicID;
 
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("unsuccessful " + ex);
-            }
+                try // populate the project list (needed the topic ID to do so)
+                {
+                    //MessageBox.Show("try to populate the project list");
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(selectProject, conn);
+
+                    SqlDataReader sdr = cmd.ExecuteReader();
+
+
+                    while (sdr.Read())
+                    {
+
+                        Project pro = new Project();
+                        pro.ProjectName = sdr["ProjectName"].ToString();
+
+                        cbProject.Items.Add(pro.ProjectName);
+                    }
+
+
+                    if (sdr != null)
+                    {
+                        sdr.Close();
+                    }
+
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("unsuccessful " + ex);
+                }
+            }         
         }
 
         private void cbProject_SelectedIndexChanged(object sender, EventArgs e)
