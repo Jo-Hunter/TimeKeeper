@@ -79,13 +79,13 @@ namespace TimeKeeper
             session.StartTime = start;
             
             string addQuery = "sp_Sessions_NewSession";
-            if (cbTopic.Text == null)
+            if (cbTopic.Text != null)
             {
-                MessageBox.Show("topic is null");
+                MessageBox.Show("topic is ! null");
             }
             else
             {
-                MessageBox.Show("someting is in topic");
+                MessageBox.Show("topic is null");
             }
             try
             {
@@ -209,6 +209,7 @@ namespace TimeKeeper
 
             try
             {
+                MessageBox.Show("prefill topics");
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(selectTopic, conn);
 
@@ -365,7 +366,7 @@ namespace TimeKeeper
         {
             frmAddLink addL = new frmAddLink();
             addL.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void linksToolStripMenuItem_Click(object sender, EventArgs e)
@@ -385,7 +386,7 @@ namespace TimeKeeper
             }
             else
             {
-                MessageBox.Show("no currebnt session open");
+                MessageBox.Show("no current session open");
             }
         }
 
@@ -438,38 +439,32 @@ namespace TimeKeeper
         {
             //if topic changed, check if there is a session in progress, and if so, 
             // stop and display a popup box with a info and a button.
-            // are you stopping this current session yes/no.
-
+           
+            MessageBox.Show("topic index changed");
             //MessageBox.Show("current session ID = " + GlobalVariables.currentSessionID);
 
-            if (GlobalVariables.currentSessionID!=0)
+            
+            MessageBox.Show("selected = " + cbTopic.Text + "saved topic = " + GlobalVariables.selectedTopicName);
+
+            // if there is a current session running and I haven't programmatically replaced the old topic
+            if (GlobalVariables.currentSessionID!=0 && cbTopic.Text != GlobalVariables.selectedTopicName)
             {
 
-                MessageBox.Show("there is a session in progress");
+                //MessageBox.Show("there is a session in progress so open stop popup");
 
                 frmStop st = new frmStop();
                 st.ShowDialog();
-                this.Hide();
 
-                
-                //cbTopic.Items.Clear();
-                this.ShowDialog();
-                //preFillComboBoxes();
-                // doesn't clear them
                 cbProject.Items.Clear();
-
-                //cbTopic.Items.Clear();
                 if (GlobalVariables.currentSessionID != 0)
                 {
-
-                    // it is not entering here.
-                    MessageBox.Show("the saved topic name is " + GlobalVariables.selectedTopicName);
+                    //MessageBox.Show("change was cancelled in the popup box so return to normal");
+                    
                     cbTopic.Text = GlobalVariables.selectedTopicName;
-                    // puts the wrong one
+                    
                 }
-
-
             }
+            
 
             MessageBox.Show("the saved topic name is " + GlobalVariables.selectedTopicName);
             // put all of this inside another if session = 0 condition. if they press cancel, return the combobox to the original and 
@@ -481,7 +476,7 @@ namespace TimeKeeper
             // antoher way of doing this is to hava a hidden list on the form that records the number.
             // but for now I am going to grab it from the database.
 
-            MessageBox.Show("there is no session in progress");
+            //MessageBox.Show("there is no session in progress");
 
             string getID = "SELECT * FROM Topics WHERE TopicName = " + "'" + cbTopic.Text + "'";
             //MessageBox.Show(getID);
@@ -490,6 +485,7 @@ namespace TimeKeeper
 
             try
             {
+                //MessageBox.Show("try to get the topic details from the db");
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(getID, conn);
 
@@ -523,6 +519,7 @@ namespace TimeKeeper
 
             try
             {
+                MessageBox.Show("try to populate the project list");
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(selectProject, conn);
 
@@ -555,9 +552,10 @@ namespace TimeKeeper
         private void cbProject_SelectedIndexChanged(object sender, EventArgs e)
         {
             // pop up box, you have selected XXX project, are you ready to start a new session? yes/cancel
+            MessageBox.Show("project index changed");
 
             string selectProject = "SELECT * FROM Projects WHERE TopicID = " + GlobalVariables.selectedTopicID;
-            MessageBox.Show(selectProject);
+            //MessageBox.Show(selectProject);
             SqlConnection conn = ConnectionManager.DatabaseConnection();
 
             try
