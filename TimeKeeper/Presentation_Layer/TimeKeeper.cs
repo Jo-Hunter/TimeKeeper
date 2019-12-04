@@ -111,8 +111,10 @@ namespace TimeKeeper
             {
                 MessageBox.Show("unsuccessful " + ex);
             }
-            
 
+            lblStartInfo.Text = "Session in progress. \nTopic: " + GlobalVariables.selectedTopicName + 
+                "\nProject: " + GlobalVariables.selectedProjectName;
+            lblStartInfo.Visible = true;
 
         }
 
@@ -461,22 +463,20 @@ namespace TimeKeeper
 
             //MessageBox.Show("selected = " + cbTopic.Text + "saved topic = " + GlobalVariables.selectedTopicName);
             //MessageBox.Show("the saved topic name is " + GlobalVariables.selectedTopicName);
-
+            SqlConnection conn = ConnectionManager.DatabaseConnection();
             // if the topic has in fact changed (this will skip if user cancelled)
             if (cbTopic.Text != GlobalVariables.selectedTopicName)
             {
-                
+                MessageBox.Show("condition: the topic name has changed");
+
                 // antoher way of doing this is to hava a hidden list on the form that records the number.
                 // but for now I am going to grab it from the database.
-                
-                string getID = "SELECT * FROM Topics WHERE TopicName = " + "'" + cbTopic.Text + "'";
-               
-                SqlConnection conn = ConnectionManager.DatabaseConnection();
 
-                
+                string getID = "SELECT * FROM Topics WHERE TopicName = " + "'" + cbTopic.Text + "'";
+
                 try // try to get the Topic ID number using the name and save in globals
                 {
-                    
+
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(getID, conn);
 
@@ -505,6 +505,8 @@ namespace TimeKeeper
                 }
 
 
+
+
                 string selectProject = "SELECT * FROM Projects WHERE TopicID = " + GlobalVariables.selectedTopicID;
 
                 try // populate the project list (needed the topic ID to do so)
@@ -523,6 +525,7 @@ namespace TimeKeeper
                         pro.ProjectName = sdr["ProjectName"].ToString();
 
                         cbProject.Items.Add(pro.ProjectName);
+                        MessageBox.Show("add a project");
                     }
 
 
@@ -537,52 +540,72 @@ namespace TimeKeeper
                 {
                     MessageBox.Show("unsuccessful " + ex);
                 }
-            }         
+
+            }
         }
 
         private void cbProject_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // pop up box, you have selected XXX project, are you ready to start a new session? yes/cancel
-            MessageBox.Show("project index changed");
 
-            string selectProject = "SELECT * FROM Projects WHERE TopicID = " + GlobalVariables.selectedTopicID;
-            //MessageBox.Show(selectProject);
-            SqlConnection conn = ConnectionManager.DatabaseConnection();
+            // if the topic has changed, prefill should be dealth with in topic.
 
-            try
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(selectProject, conn);
+            GlobalVariables.selectedProjectName = cbProject.Text;
 
-                SqlDataReader sdr = cmd.ExecuteReader();
+            // need to get ProjectID so that I can insert it into the database
+            // into the UI, put a combobox that is paired with names, so here I can compare indexes
+            // do it for topics too
+
+            //-----------------------------------------------
+
+            //// pop up box, you have selected XXX project, are you ready to start a new session? yes/cancel
+            
+            //----------------------
+            
+            //MessageBox.Show("project index changed");
+
+            //string selectProject = "SELECT * FROM Projects WHERE TopicID = " + GlobalVariables.selectedTopicID;
+            
+            
+            
+            
+            ////MessageBox.Show(selectProject);
+            //SqlConnection conn = ConnectionManager.DatabaseConnection();
+
+            //try
+            //{
+            //    conn.Open();
+            //    SqlCommand cmd = new SqlCommand(selectProject, conn);
+
+            //    SqlDataReader sdr = cmd.ExecuteReader();
 
 
 
 
-                while (sdr.Read())
-                {
+            //    while (sdr.Read())
+            //    {
 
-                    Project pro = new Project();
-                    pro.ProjectName = sdr["ProjectName"].ToString();
+            //        Project pro = new Project();
+            //        pro.ProjectName = sdr["ProjectName"].ToString();
 
-                    cbProject.Items.Add(pro.ProjectName);
-                }
-
-
-
+            //        cbProject.Items.Add(pro.ProjectName);
+            //        MessageBox.Show("auto triggered ad a project");
+            //    }
 
 
-                if (sdr != null)
-                {
-                    sdr.Close();
-                }
 
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("unsuccessful " + ex);
-            }
+
+
+            //    if (sdr != null)
+            //    {
+            //        sdr.Close();
+            //    }
+
+            //    conn.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("unsuccessful " + ex);
+            //}
         }
     }
 }

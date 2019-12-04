@@ -50,6 +50,7 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.lblStartInfo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -107,7 +108,7 @@
             // rbOpenExisting
             // 
             this.rbOpenExisting.AutoSize = true;
-            this.rbOpenExisting.Location = new System.Drawing.Point(24, 70);
+            this.rbOpenExisting.Location = new System.Drawing.Point(24, 97);
             this.rbOpenExisting.Name = "rbOpenExisting";
             this.rbOpenExisting.Size = new System.Drawing.Size(112, 17);
             this.rbOpenExisting.TabIndex = 8;
@@ -119,7 +120,7 @@
             // rbSelectNotes
             // 
             this.rbSelectNotes.AutoSize = true;
-            this.rbSelectNotes.Location = new System.Drawing.Point(24, 110);
+            this.rbSelectNotes.Location = new System.Drawing.Point(24, 163);
             this.rbSelectNotes.Name = "rbSelectNotes";
             this.rbSelectNotes.Size = new System.Drawing.Size(175, 17);
             this.rbSelectNotes.TabIndex = 9;
@@ -162,7 +163,7 @@
             this.groupBox2.Controls.Add(this.rbSelectNotes);
             this.groupBox2.Location = new System.Drawing.Point(35, 167);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(296, 140);
+            this.groupBox2.Size = new System.Drawing.Size(296, 213);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             // 
@@ -204,7 +205,7 @@
             // linksToolStripMenuItem
             // 
             this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
-            this.linksToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.linksToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.linksToolStripMenuItem.Text = "Links";
             this.linksToolStripMenuItem.Click += new System.EventHandler(this.linksToolStripMenuItem_Click);
             // 
@@ -216,17 +217,18 @@
             // 
             // gbStartControls
             // 
+            this.gbStartControls.Controls.Add(this.lblStartInfo);
             this.gbStartControls.Controls.Add(this.btnStop);
             this.gbStartControls.Controls.Add(this.btnStart);
             this.gbStartControls.Location = new System.Drawing.Point(361, 168);
             this.gbStartControls.Name = "gbStartControls";
-            this.gbStartControls.Size = new System.Drawing.Size(225, 139);
+            this.gbStartControls.Size = new System.Drawing.Size(225, 212);
             this.gbStartControls.TabIndex = 0;
             this.gbStartControls.TabStop = false;
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(38, 106);
+            this.btnStop.Location = new System.Drawing.Point(38, 162);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(162, 23);
             this.btnStop.TabIndex = 1;
@@ -248,11 +250,20 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
+            // lblStartInfo
+            // 
+            this.lblStartInfo.AutoSize = true;
+            this.lblStartInfo.Location = new System.Drawing.Point(38, 96);
+            this.lblStartInfo.Name = "lblStartInfo";
+            this.lblStartInfo.Size = new System.Drawing.Size(0, 13);
+            this.lblStartInfo.TabIndex = 2;
+            this.lblStartInfo.Visible = false;
+            // 
             // frmTimeKeeperMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 354);
+            this.ClientSize = new System.Drawing.Size(633, 392);
             this.Controls.Add(this.gbStartControls);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -269,6 +280,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gbStartControls.ResumeLayout(false);
+            this.gbStartControls.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,6 +309,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.ToolStripMenuItem tagsToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.Label lblStartInfo;
     }
 }
 

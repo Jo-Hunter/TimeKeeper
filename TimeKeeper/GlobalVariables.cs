@@ -16,6 +16,7 @@ namespace TimeKeeper
         public static int selectedCategoryID = 0;
         public static int selectedTopicID;
         public static string selectedTopicName;
+        public static string selectedProjectName;
 
         public static Session sess = new Session();
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using TimeKeeper;
+using TimeKeeper.Presentation_Layer;
 
 namespace TimeKeeper.Presentation_Layer
 {
@@ -26,6 +26,11 @@ namespace TimeKeeper.Presentation_Layer
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
             
         }
     }

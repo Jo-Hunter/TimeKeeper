@@ -50,6 +50,7 @@
             this.btnStop.TabIndex = 1;
             this.btnStop.Text = "Stop Current Session";
             this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnCancel
             // 
